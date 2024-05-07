@@ -6,21 +6,17 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+
 $id=$_SESSION['id'];
 $id_cargo=$_SESSION['id_cargo'];
 
-// Consulta para obtener la descripción del cargo
-$sql_cargo = "SELECT descripcion FROM cargo WHERE id_cargo=$id_cargo";
-$resultado_cargo = $conecta->query($sql_cargo);
-
-if ($resultado_cargo->num_rows > 0) {
-    // Almacenar la descripción del cargo en una variable de sesión
-    while($row = $resultado_cargo->fetch_assoc()) {
-      $_SESSION['descripcion_cargo'] = $row["descripcion"];
-    }
-  } else {
-    echo "0 resultados";
-  }
+if($id_cargo==1){
+    $where="";
+}else if($id_cargo==2){
+    $where="WHERE id=$id";
+}
+$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo $where";
+$resultado=$conecta->query($sql);
 
 ?>
 
@@ -32,7 +28,7 @@ if ($resultado_cargo->num_rows > 0) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Tico's Burger</title>
+        <title>Tabla Usuarios</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -48,7 +44,7 @@ if ($resultado_cargo->num_rows > 0) {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuración</a></li>
+                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="logout.php">Salir</a></li>
                     </ul>
@@ -63,7 +59,6 @@ if ($resultado_cargo->num_rows > 0) {
                             <div class="sb-sidenav-menu-heading">Administrar</div>
                             <!-- Cambiar link-->
                             <a class="nav-link" href="adminUsuarios.php">
-                                <!-- icono de Dashboard-->
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Usuarios
                             </a>
@@ -79,7 +74,7 @@ if ($resultado_cargo->num_rows > 0) {
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
-                            
+                           
                             <div class="sb-sidenav-menu-heading">Información</div>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -96,46 +91,59 @@ if ($resultado_cargo->num_rows > 0) {
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Panel</h1>
+                        <h1 class="mt-4">Administrar usuarios</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Actividades</li>
+                            <li class="breadcrumb-item"><a href="index.php">Panel general</a></li>
+                            <li class="breadcrumb-item active">Tabla usuarios</li>
                         </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Pedidos iniciados</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Usuarios
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Pedidos en proceso</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Pedidos completados</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Opiniones</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Correo</th>
+                                            <th>Contraseña</th>
+                                            <th>Telefono</th>
+                                            <th>id_cargo</th>
+                                            <th>Descripción del cargo</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Correo</th>
+                                            <th>Contraseña</th>
+                                            <th>Telefono</th>
+                                            <th>id_cargo</th>
+                                            <th>Descripción del cargo</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php while($row=$resultado->fetch_assoc()) {?>
+                                            <tr>
+                                                <td><?php echo$row['Nombre'];?></td>
+                                                <td><?php echo$row['Apellidos'];?></td>
+                                                <td><?php echo$row['Correo'];?></td>
+                                                <td><?php echo$row['Contraseña'];?></td>
+                                                <td><?php echo$row['Telefono'];?></td>
+                                                <td><?php echo$row['id_cargo'];?></td>
+                                                <td><?php echo$row['descripcion'];?></td>
+
+                                                <td><a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a> | <a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">Eliminar</a> </td>
+
+                                            </tr>
+                                        <?php }?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -151,9 +159,6 @@ if ($resultado_cargo->num_rows > 0) {
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
