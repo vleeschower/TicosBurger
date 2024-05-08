@@ -13,5 +13,5 @@ $id_usuario = $_GET['id']; // Obtener el ID del usuario a eliminar
 $sql="DELETE FROM usuarios WHERE id=$id_usuario";
 $resultado=$conecta->query($sql);
 
-header("Location: adminUsuarios.php"); // Redirigir a la primera página
+header("Location: adminUsuarios.php"); // Redirigir a la primera página 54
 ?>
