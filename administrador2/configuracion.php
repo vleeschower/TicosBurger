@@ -6,14 +6,31 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
-
+$id=$_SESSION['id'];
+$id_cargo=$_SESSION['id_cargo'];
 $id_usuario = $_GET['id']; // Obtener el ID del usuario a editar
-
 // Consulta para obtener los datos del usuario a editar
 $sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo WHERE usuarios.id=$id_usuario";
 $resultado=$conecta->query($sql);
 
 $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
+
+// Comprueba si el formulario ha sido enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST['Nombre'];
+    $apellidos = $_POST['Apellidos'];
+    $correo = $_POST['Correo'];
+    $contraseña = $_POST['Contraseña'];
+    $telefono = $_POST['Telefono'];
+
+    // Consulta SQL para insertar los datos
+    if ($conecta->query($sql) === TRUE) {
+        header("Location: adminUsuarios.php"); // Redirigir a la primera página
+    } else {
+        echo "Error: " . $sql . "<br>" . $conecta->error;
+    }
+    $conecta->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -95,9 +112,9 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
             </style>
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Editar usuario</h1>
+                        <h1 class="mt-4">Editar información</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Modificar:</li>
+                            <li class="breadcrumb-item active">Datos:</li>
                         </ol>
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
@@ -105,58 +122,48 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                     <div class="card-footer d-flex align-items-start justify-content-between">
                                         <div class="d-flex ">
                                             <div>
-                                            <img src="assets/img/imgusuario.png" alt="imagenUsuario" style="width: 100%; height: auto;">
+                                            <img src="assets/img/imgañadir.png" alt="imagenUsuario" style="width: 100%; height: auto;">
                                             </div>
                                             
                                             <div>
-                                                <form action="actualizar.php" method="POST">
+                                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
                                                     <table border="0.5">
                                                         <tr>
                                                             <td>Nombre:</td>
                                                             <td>
-                                                                <input type="text" name="Nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios" value="<?php echo $row['Nombre']; ?>"required /><br/>
+                                                                <input type="text" name="Nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios" value="<?php echo $row['Nombre']; ?>" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Apellidos:</td>
                                                             <td>
-                                                                <input type="text" name="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios"  value="<?php echo $row['Apellidos']; ?>"required /><br/>
+                                                                <input type="text" name="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios" required /><br/>
                                                             </td>
                                                         </tr>
     
                                                         <tr>
                                                             <td>Correo:</td>
                                                             <td>
-                                                                <input type="email" name="Correo" value="<?php echo $row['Correo']; ?>"required /><br/>
+                                                                <input type="email" name="Correo" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Contraseña:</td>
                                                             <td>
-                                                                <input type="text" name="Contraseña" value="<?php echo $row['Contraseña']; ?>"required /><br/>
+                                                                <input type="text" name="Contraseña" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Telefono:</td>
                                                             <td>
-                                                                <input type="tel" name="Telefono" pattern="[0-9]{10}" title="Debe ingresar exactamente 10 números" value="<?php echo $row['Telefono']; ?>"required /><br/>
+                                                                <input type="tel" name="Telefono" pattern="[0-9]{10}" title="Debe ingresar exactamente 10 números" required /><br/>
                                                             </td>
                                                         </tr>
 
-                                                        <tr>
-                                                            <td>Cargo:</td>
-                                                            <td>
-                                                                <select name="id_cargo" required>
-                                                                    <option value="1" <?php if ($row['id_cargo'] == 1) echo 'selected'; ?>>Administrador</option>
-                                                                    <option value="2" <?php if ($row['id_cargo'] == 2) echo 'selected'; ?>>Cliente</option>
-                                                                    <option value="3" <?php if ($row['id_cargo'] == 3) echo 'selected'; ?>>Empleado</option>
-                                                                </select>
-                                                            </td>
-                                                        </tr>
                                                     </table>
                                                     <input type="submit" value="Guardar" class="btn btn-success">                   
                                                 </form>    

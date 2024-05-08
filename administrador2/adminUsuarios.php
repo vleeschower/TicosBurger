@@ -44,7 +44,7 @@ $resultado=$conecta->query($sql);
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
+                        <li><a class="dropdown-item" href="configuracion.php">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="logout.php">Salir</a></li>
                     </ul>
@@ -97,10 +97,13 @@ $resultado=$conecta->query($sql);
                             <li class="breadcrumb-item active">Tabla usuarios</li>
                         </ol>
                         <div class="card mb-4">
-                            <div class="card-header">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div>
                                 <i class="fas fa-table me-1"></i>
                                 Usuarios
                             </div>
+                            <a href="añadir.php" class="btn btn-primary">Añadir Empleado / Administrador</a>
+                        </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
@@ -138,7 +141,7 @@ $resultado=$conecta->query($sql);
                                                 <td><?php echo$row['id_cargo'];?></td>
                                                 <td><?php echo$row['descripcion'];?></td>
 
-                                                <td><a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a> | <a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">Eliminar</a> </td>
+                                                <td><a href="editar.php?id=<?php echo $row['id']; ?>" class="btn btn-success" style="margin-right: 10px;">Editar</a><a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')" class="btn btn-danger" >Eliminar</a> </td>
 
                                             </tr>
                                         <?php }?>

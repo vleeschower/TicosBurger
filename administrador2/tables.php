@@ -44,7 +44,7 @@ $resultado=$conecta->query($sql);
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
+                        <li><a class="dropdown-item" href="configuracion.php">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="logout.php">Salir</a></li>
                     </ul>
@@ -105,29 +105,32 @@ $resultado=$conecta->query($sql);
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Correo</th>
                                             <th>Contraseña</th>
                                             <th>Telefono</th>
-                                            <th>id_cargo</th>
+                                            <th>Id cargo</th>
                                             <th>Descripción del cargo</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Correo</th>
                                             <th>Contraseña</th>
                                             <th>Telefono</th>
-                                            <th>id_cargo</th>
+                                            <th>Id cargo</th>
                                             <th>Descripción del cargo</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php while($row=$resultado->fetch_assoc()) {?>
                                             <tr>
+                                                <td><?php echo$row['id'];?></td>
                                                 <td><?php echo$row['Nombre'];?></td>
                                                 <td><?php echo$row['Apellidos'];?></td>
                                                 <td><?php echo$row['Correo'];?></td>

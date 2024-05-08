@@ -52,12 +52,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="style.css">    
-    
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Tico's Burger</title>
-
 </head>
 <body>
     <header class="header">        
@@ -105,9 +103,6 @@
                             <label for="check">Recordar usuario</label><br>
                         </span>
                     </div>
-
-                    <a href="#" class="forgot_pw">¿Has olvidado tu contraseña?</a>
-
                     <button class="button">Ingresar</button>
                     <div class="login_signup">¿No tienes una cuenta? <a href="admin.html" id="signup">¡Registrate!</a></div>
                 </form>
