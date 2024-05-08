@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta SQL para insertar los datos
     if ($conecta->query($sql) === TRUE) {
-        header("Location: adminUsuarios.php"); // Redirigir a la primera página
+        header("Location: adminUsuarios.php"); // Redirigir a la primera página 78
     } else {
         echo "Error: " . $sql . "<br>" . $conecta->error;
     }
