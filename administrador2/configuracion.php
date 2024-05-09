@@ -6,11 +6,13 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+$apellidos = $_SESSION['Apellidos'];
+
 $id=$_SESSION['id'];
 $id_cargo=$_SESSION['id_cargo'];
-$id_usuario = $_GET['id']; // Obtener el ID del usuario a editar
+
 // Consulta para obtener los datos del usuario a editar
-$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo WHERE usuarios.id=$id_usuario";
+$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo WHERE usuarios.id=$id";
 $resultado=$conecta->query($sql);
 
 $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
@@ -20,12 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['Nombre'];
     $apellidos = $_POST['Apellidos'];
     $correo = $_POST['Correo'];
-    $contraseña = $_POST['Contraseña'];
+    $contraseña = $_POST['Contraseña']; 
     $telefono = $_POST['Telefono'];
 
-    // Consulta SQL para insertar los datos
-    if ($conecta->query($sql) === TRUE) {
-        header("Location: adminUsuarios.php"); // Redirigir a la primera página 78
+    // Consulta SQL para actualizar los datos
+    $sql = "UPDATE usuarios SET Nombre='$nombre', Apellidos='$apellidos', Correo='$correo', Contraseña='$contraseña', Telefono='$telefono' WHERE id=$id";
+    $resultado=$conecta->query($sql);
+
+    if ($resultado === TRUE) {
+        header("Location: adminUsuarios.php"); // Redirigir a la primera página
     } else {
         echo "Error: " . $sql . "<br>" . $conecta->error;
     }
@@ -55,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="configuracion.php">Configuración</a></li>
                         <li><hr class="dropdown-divider" /></li>
@@ -79,12 +84,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -112,17 +117,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </style>
                 <main>
                     <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center">
                         <h1 class="mt-4">Editar información</h1>
+                        <a href="index.php" onclick="history.back();" class="btn btn-danger"> X </a>
+                    </div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Datos:</li>
                         </ol>
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-success text-white mb-4">
                                     <div class="card-footer d-flex align-items-start justify-content-between">
                                         <div class="d-flex ">
                                             <div>
-                                            <img src="assets/img/imgañadir.png" alt="imagenUsuario" style="width: 100%; height: auto;">
+                                            <img src="assets/img/credencial2.png" alt="imagenUsuario" style="width: 100%; height: auto;">
                                             </div>
                                             
                                             <div>
@@ -139,33 +147,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         <tr>
                                                             <td>Apellidos:</td>
                                                             <td>
-                                                                <input type="text" name="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios" required /><br/>
+                                                                <input type="text" name="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras, letras con acentos, ñ y espacios" value="<?php echo $row['Apellidos']; ?>" required /><br/>
                                                             </td>
                                                         </tr>
     
                                                         <tr>
                                                             <td>Correo:</td>
                                                             <td>
-                                                                <input type="email" name="Correo" required /><br/>
+                                                                <input type="email" name="Correo" value="<?php echo $row['Correo']; ?>" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Contraseña:</td>
                                                             <td>
-                                                                <input type="text" name="Contraseña" required /><br/>
+                                                                <input type="text" name="Contraseña" value="<?php echo $row['Contraseña']; ?>" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td>Telefono:</td>
                                                             <td>
-                                                                <input type="tel" name="Telefono" pattern="[0-9]{10}" title="Debe ingresar exactamente 10 números" required /><br/>
+                                                                <input type="tel" name="Telefono" pattern="[0-9]{10}" title="Debe ingresar exactamente 10 números" value="<?php echo $row['Telefono']; ?>" required /><br/>
                                                             </td>
                                                         </tr>
 
                                                     </table>
-                                                    <input type="submit" value="Guardar" class="btn btn-success">                   
+                                                    <input type="submit" value="Guardar" class="btn btn-primary">                   
                                                 </form>    
                                             </div>
                                         </div>

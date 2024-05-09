@@ -5,6 +5,8 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+$apellidos = $_SESSION['Apellidos'];
+
 $id=$_SESSION['id'];
 $id_cargo=$_SESSION['id_cargo'];
 
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="configuracion.php">Configuración</a></li>
                         <li><hr class="dropdown-divider" /></li>
@@ -75,12 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -108,17 +110,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </style>
                 <main>
                     <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center">
                         <h1 class="mt-4">Añadir Empleado / Administrador</h1>
+                        <a href="adminUsuarios.php" onclick="history.back();" class="btn btn-danger"> X </a>
+                    </div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Nuevo usuario</li>
                         </ol>
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-success text-white mb-4">
                                     <div class="card-footer d-flex align-items-start justify-content-between">
                                         <div class="d-flex ">
                                             <div>
-                                            <img src="assets/img/imgañadir.png" alt="imagenUsuario" style="width: 100%; height: auto;">
+                                            <img src="assets/img/alta.png" alt="imagenUsuario" style="width: 100%; height: auto;">
                                             </div>
                                             
                                             <div>
@@ -169,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    <input type="submit" value="Añadir" class="btn btn-success">                   
+                                                    <input type="submit" value="Añadir" class="btn btn-primary">                   
                                                 </form>    
                                             </div>
                                         </div>

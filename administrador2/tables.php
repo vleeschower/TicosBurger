@@ -6,18 +6,13 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+$apellidos = $_SESSION['Apellidos'];
 
 $id=$_SESSION['id'];
 $id_cargo=$_SESSION['id_cargo'];
 
-if($id_cargo==1){
-    $where="";
-}else if($id_cargo==2){
-    $where="WHERE id=$id";
-}
-$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo $where";
+$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo";
 $resultado=$conecta->query($sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +37,7 @@ $resultado=$conecta->query($sql);
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="configuracion.php">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
@@ -65,12 +60,12 @@ $resultado=$conecta->query($sql);
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -129,17 +124,36 @@ $resultado=$conecta->query($sql);
                                     </tfoot>
                                     <tbody>
                                         <?php while($row=$resultado->fetch_assoc()) {?>
-                                            <tr>
-                                                <td><?php echo$row['id'];?></td>
-                                                <td><?php echo$row['Nombre'];?></td>
-                                                <td><?php echo$row['Apellidos'];?></td>
-                                                <td><?php echo$row['Correo'];?></td>
-                                                <td><?php echo$row['Contraseña'];?></td>
-                                                <td><?php echo$row['Telefono'];?></td>
-                                                <td><?php echo$row['id_cargo'];?></td>
-                                                <td><?php echo$row['descripcion'];?></td>
-                                                
-                                            </tr>
+                                            <?php
+                                            // Si el id_cargo del usuario que ha iniciado sesión es 1, muestra la información de todos los usuarios
+                                            if($id_cargo == 1){
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo$row['id'];?></td>
+                                                    <td><?php echo$row['Nombre'];?></td>
+                                                    <td><?php echo$row['Apellidos'];?></td>
+                                                    <td><?php echo$row['Correo'];?></td>
+                                                    <td><?php echo$row['Contraseña'];?></td>
+                                                    <td><?php echo$row['Telefono'];?></td>
+                                                    <td><?php echo$row['id_cargo'];?></td>
+                                                    <td><?php echo$row['descripcion'];?></td>
+                                                </tr>
+                                                <?php
+                                            }else if($id_cargo == 3 && $row['id_cargo'] == 2){
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo$row['id'];?></td>
+                                                    <td><?php echo$row['Nombre'];?></td>
+                                                    <td><?php echo$row['Apellidos'];?></td>
+                                                    <td><?php echo$row['Correo'];?></td>
+                                                    <td><?php echo$row['Contraseña'];?></td>
+                                                    <td><?php echo$row['Telefono'];?></td>
+                                                    <td><?php echo$row['id_cargo'];?></td>
+                                                    <td><?php echo$row['descripcion'];?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
                                         <?php }?>
                                     </tbody>
                                 </table>
