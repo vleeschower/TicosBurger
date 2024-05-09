@@ -8,7 +8,6 @@ if(!isset($_SESSION['id_cargo'])){
 
 $email=$_SESSION['Correo'];
 $id_cargo=$_SESSION['id_cargo'];
-
 ?>
 
 <!DOCTYPE html>

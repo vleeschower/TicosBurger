@@ -32,10 +32,13 @@
                 $_SESSION['id_cargo'] = $row['id_cargo'];
                 $id_cargo=$_SESSION['id_cargo'];
 
-                if($id_cargo==1 || $id_cargo=3){
+                if($id_cargo==1){
                     header("Location: ../administrador2/index.php");
                 }else if($id_cargo==2){
                     header("Location: ../prueba.php");
+                }
+                else if($id_cargo==3){
+                    header("Location: ../administrador2/index.php");
                 }
     
             }else{
