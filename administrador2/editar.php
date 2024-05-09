@@ -6,6 +6,7 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+$apellidos = $_SESSION['Apellidos'];
 
 $id_usuario = $_GET['id']; // Obtener el ID del usuario a editar
 
@@ -38,7 +39,7 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="configuracion.php">Configuración</a></li>
                         <li><hr class="dropdown-divider" /></li>
@@ -62,12 +63,12 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -95,13 +96,16 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
             </style>
                 <main>
                     <div class="container-fluid px-4">
+                    <div class="d-flex justify-content-between align-items-center">
                         <h1 class="mt-4">Editar usuario</h1>
+                        <a href="adminUsuarios.php" onclick="history.back();" class="btn btn-danger"> X </a>
+                    </div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Modificar:</li>
                         </ol>
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-success text-white mb-4">
                                     <div class="card-footer d-flex align-items-start justify-content-between">
                                         <div class="d-flex ">
                                             <div>
@@ -150,15 +154,24 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                                         <tr>
                                                             <td>Cargo:</td>
                                                             <td>
-                                                                <select name="id_cargo" required>
-                                                                    <option value="1" <?php if ($row['id_cargo'] == 1) echo 'selected'; ?>>Administrador</option>
-                                                                    <option value="2" <?php if ($row['id_cargo'] == 2) echo 'selected'; ?>>Cliente</option>
-                                                                    <option value="3" <?php if ($row['id_cargo'] == 3) echo 'selected'; ?>>Empleado</option>
-                                                                </select>
+                                                                <?php
+                                                                // Solo muestra la opción de seleccionar el cargo si el id_cargo del usuario a editar es 3
+                                                                if($row['id_cargo'] == 3 || $row['id'] == 1){
+                                                                    ?>
+                                                                    <select name="id_cargo" required>
+                                                                        <option value="1" <?php if ($row['id_cargo'] == 1) echo 'selected'; ?>>Administrador</option>
+                                                                        <option value="3" <?php if ($row['id_cargo'] == 3) echo 'selected'; ?>>Empleado</option>
+                                                                    </select>
+                                                                    <?php
+                                                                }else{
+                                                                    // Si el id_cargo del usuario a editar no es 3, muestra el cargo actual como texto
+                                                                    echo $row['descripcion'];
+                                                                }
+                                                                ?>
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    <input type="submit" value="Guardar" class="btn btn-success">                   
+                                                    <input type="submit" value="Guardar" class="btn btn-primary">                   
                                                 </form>    
                                             </div>
                                         </div>

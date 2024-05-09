@@ -16,7 +16,6 @@
         $nombre = $_POST['Nombre'];
     
         $sql = "SELECT * FROM usuarios WHERE Correo='$email'";
-        echo $sql;
     
         $resultado = $conecta->query($sql);
         $num = $resultado->num_rows;
@@ -29,10 +28,11 @@
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['Correo'] = $row['Correo'];
                 $_SESSION['Nombre']=$row['Nombre'];
+                $_SESSION['Apellidos']=$row['Apellidos'];
                 $_SESSION['id_cargo'] = $row['id_cargo'];
                 $id_cargo=$_SESSION['id_cargo'];
 
-                if($id_cargo==1){
+                if($id_cargo==1 || $id_cargo=3){
                     header("Location: ../administrador2/index.php");
                 }else if($id_cargo==2){
                     header("Location: ../prueba.php");

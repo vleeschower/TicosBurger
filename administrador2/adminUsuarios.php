@@ -6,16 +6,12 @@ if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
 }
 $nombre=$_SESSION['Nombre'];
+$apellidos = $_SESSION['Apellidos'];
 
 $id=$_SESSION['id'];
 $id_cargo=$_SESSION['id_cargo'];
 
-if($id_cargo==1){
-    $where="";
-}else if($id_cargo==2){
-    $where="WHERE id=$id";
-}
-$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo $where";
+$sql="SELECT usuarios.*, cargo.descripcion FROM usuarios INNER JOIN cargo ON usuarios.id_cargo=cargo.id_cargo";
 $resultado=$conecta->query($sql);
 
 ?>
@@ -42,7 +38,7 @@ $resultado=$conecta->query($sql);
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="configuracion.php">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
@@ -65,12 +61,12 @@ $resultado=$conecta->query($sql);
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -102,7 +98,14 @@ $resultado=$conecta->query($sql);
                                 <i class="fas fa-table me-1"></i>
                                 Usuarios
                             </div>
-                            <a href="añadir.php" class="btn btn-primary">Añadir Empleado / Administrador</a>
+                            <?php
+                            // Solo muestra el botón de "Añadir Empleado / Administrador" si el id_cargo del usuario es 1
+                            if($id_cargo == 1){
+                                ?>
+                                <a href="añadir.php" class="btn btn-primary">Añadir Empleado / Administrador</a>
+                                <?php
+                            }
+                            ?>
                         </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -132,18 +135,40 @@ $resultado=$conecta->query($sql);
                                     </tfoot>
                                     <tbody>
                                         <?php while($row=$resultado->fetch_assoc()) {?>
-                                            <tr>
-                                                <td><?php echo$row['Nombre'];?></td>
-                                                <td><?php echo$row['Apellidos'];?></td>
-                                                <td><?php echo$row['Correo'];?></td>
-                                                <td><?php echo$row['Contraseña'];?></td>
-                                                <td><?php echo$row['Telefono'];?></td>
-                                                <td><?php echo$row['id_cargo'];?></td>
-                                                <td><?php echo$row['descripcion'];?></td>
+                                            <?php
+                                            // Si el id del usuario es 1, muestra la información de todos los usuarios y permite editar y eliminar a todos
+                                            if($id_cargo == 1){
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo$row['Nombre'];?></td>
+                                                    <td><?php echo$row['Apellidos'];?></td>
+                                                    <td><?php echo$row['Correo'];?></td>
+                                                    <td><?php echo$row['Contraseña'];?></td>
+                                                    <td><?php echo$row['Telefono'];?></td>
+                                                    <td><?php echo$row['id_cargo'];?></td>
+                                                    <td><?php echo$row['descripcion'];?></td>
 
-                                                <td><a href="editar.php?id=<?php echo $row['id']; ?>" class="btn btn-success" style="margin-right: 10px;">Editar</a><a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')" class="btn btn-danger" >Eliminar</a> </td>
+                                                    <td><a href="editar.php?id=<?php echo $row['id']; ?>" class="btn btn-success" style="margin-right: 10px;">Editar</a><a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')" class="btn btn-danger" >Eliminar</a> </td>
 
-                                            </tr>
+                                                </tr>
+                                            <?php
+                                            }else if($id_cargo == 3 && $row['id_cargo'] == 2) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo$row['Nombre'];?></td>
+                                                    <td><?php echo$row['Apellidos'];?></td>
+                                                    <td><?php echo$row['Correo'];?></td>
+                                                    <td><?php echo$row['Contraseña'];?></td>
+                                                    <td><?php echo$row['Telefono'];?></td>
+                                                    <td><?php echo$row['id_cargo'];?></td>
+                                                    <td><?php echo$row['descripcion'];?></td>
+
+                                                    <td><a href="editar.php?id=<?php echo $row['id']; ?>" class="btn btn-success" style="margin-right: 10px;">Editar</a><a href="eliminar.php?id=<?php echo $row['id']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?')" class="btn btn-danger" >Eliminar</a> </td>
+
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
                                         <?php }?>
                                     </tbody>
                                 </table>
