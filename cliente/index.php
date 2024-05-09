@@ -1,7 +1,12 @@
 <?php
     session_start();
     //solicitar el archivo de conexion a la base de datosss
-    require_once "conexion.php";
+    require_once "../conexion.php";
+    
+
+    if(!isset($_SESSION['id'])){
+    header("Location: ../InicioSesión/IndexSesion.php");
+}
 
     if($_POST){
         $nombre = $_POST['Nombre'];
@@ -38,9 +43,9 @@
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="#Inicio" class="nav_link">Inicio</a>
-                    <a href="/categoria/burger.html" class="nav_link">Hamburguesa</a>
-                    <a href="/categoria/tacos.html" class="nav_link">Tacos</a>
-                    <a href="/categoria/quesadillas.html" class="nav_link">Quesadillas</a>
+                    <a href="../cliente/categoria/burger.html" class="nav_link">Hamburguesa</a>
+                    <a href="../cliente/categoria/tacos.html" class="nav_link">Tacos</a>
+                    <a href="../cliente/categoria/quesadillas.html" class="nav_link">Quesadillas</a>
                 </li>                
             </ul>            
         </nav>        
