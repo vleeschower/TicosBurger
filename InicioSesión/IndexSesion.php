@@ -35,7 +35,7 @@
                 if($id_cargo==1){
                     header("Location: ../administrador2/index.php");
                 }else if($id_cargo==2){
-                    header("Location: ../prueba.php");
+                    header("Location: ../cliente/index.php");
                 }
                 else if($id_cargo==3){
                     header("Location: ../administrador2/index.php");
