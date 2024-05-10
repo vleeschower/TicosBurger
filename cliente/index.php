@@ -42,7 +42,7 @@
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_item">
-                    <a href="#Inicio" class="nav_link">Inicio</a>
+                    <a href="index.php" class="nav_link">Inicio</a>
                     <a href="../cliente/categoria/burger.html" class="nav_link">Hamburguesa</a>
                     <a href="../cliente/categoria/tacos.html" class="nav_link">Tacos</a>
                     <a href="../cliente/categoria/quesadillas.html" class="nav_link">Quesadillas</a>
