@@ -48,9 +48,9 @@ if ($resultado_cargo->num_rows > 0) {
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="index.php" class="nav_link">Inicio</a>
-                    <a href="../cliente/categoria/burger.html" class="nav_link">Hamburguesa</a>
-                    <a href="../cliente/categoria/tacos.html" class="nav_link">Tacos</a>
-                    <a href="../cliente/categoria/quesadillas.html" class="nav_link">Quesadillas</a>
+                    <a href="../cliente/categoria/burger.php" class="nav_link">Hamburguesa</a>
+                    <a href="../cliente/categoria/tacos.php" class="nav_link">Tacos</a>
+                    <a href="../cliente/categoria/quesadillas.php" class="nav_link">Quesadillas</a>
                 </li>                
             </ul>            
         </nav>                  

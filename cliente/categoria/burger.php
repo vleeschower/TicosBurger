@@ -1,13 +1,14 @@
 <?php
 session_start();
-require_once "../conexion.php";
+require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
+    exit;
 }
 try {
     // Consulta SQL
-    $sql = "SELECT id_productos, NombreProducto, Precio FROM empreconnect WHERE activo = 1";
+    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
     
     // Ejecutar consulta
     $result = $conecta->query($sql);
@@ -43,9 +44,9 @@ try {
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="../index.php" class="nav_link">Inicio</a>
-                    <a href="burger.html" class="nav_link">Hamburguesa</a>
-                    <a href="tacos.html" class="nav_link">Tacos</a>
-                    <a href="quesadillas.html" class="nav_link">Quesadillas</a>
+                    <a href="burger.php" class="nav_link">Hamburguesa</a>
+                    <a href="tacos.php" class="nav_link">Tacos</a>
+                    <a href="quesadillas.php" class="nav_link">Quesadillas</a>
                 </li>                
             </ul>            
         </nav>

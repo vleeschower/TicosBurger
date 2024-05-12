@@ -1,7 +1,31 @@
 <?php
 session_start();
-require_once "../conexion.php";
+require_once realpath(__DIR__ . '/../../conexion.php');
 
+if(!isset($_SESSION['id'])){
+    header("Location: ../InicioSesión/IndexSesion.php");
+    exit;
+}
+try {
+    // Consulta SQL
+    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
+    
+    // Ejecutar consulta
+    $result = $conecta->query($sql);
+
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Iterar sobre los resultados y mostrarlos
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+        }
+    } else {
+        echo "0 resultados";
+    }
+} catch (Exception $e) {
+    // Manejar cualquier excepción que pueda ocurrir
+    echo "Error en la consulta: " . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,9 +44,9 @@ require_once "../conexion.php";
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="../index.php" class="nav_link">Inicio</a>
-                    <a href="burger.html" class="nav_link">Hamburguesa</a>
-                    <a href="tacos.html" class="nav_link">Tacos</a>
-                    <a href="quesadillas.html" class="nav_link">Quesadillas</a>
+                    <a href="burger.php" class="nav_link">Hamburguesa</a>
+                    <a href="tacos.php" class="nav_link">Tacos</a>
+                    <a href="quesadillas.php" class="nav_link">Quesadillas</a>
                 </li>                
             </ul>            
         </nav>
