@@ -66,7 +66,7 @@ if ($resultado_cargo->num_rows > 0) {
                             <!-- Cambiar link-->
                             <a class="nav-link" href="adminUsuarios.php">
                                 <!-- icono de Dashboard-->
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Usuarios
                             </a>
 
@@ -84,7 +84,7 @@ if ($resultado_cargo->num_rows > 0) {
                             
                             <div class="sb-sidenav-menu-heading">Información</div>
                             <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Tabla usuarios
                             </a>
                         </div>

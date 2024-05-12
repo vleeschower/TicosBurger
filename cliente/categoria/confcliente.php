@@ -1,9 +1,10 @@
 <?php
 session_start();
-require_once "../conexion.php";
+require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
+    exit;
 }
 $nombre=$_SESSION['Nombre'];
 $apellidos = $_SESSION['Apellidos'];
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado=$conecta->query($sql);
 
     if ($resultado === TRUE) {
-        header("Location: /categoria/adminUsuarios.php"); // Redirigir a la primera página
+        header("Location: ../index.php"); // Redirigir a la primera página
     } else {
         echo "Error: " . $sql . "<br>" . $conecta->error;
     }
@@ -48,15 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="author" content="" />
         <title>Tico's Burger</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">Tico's Burger</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand ps-3" href="../index.php">Tico's Burger</a>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
@@ -70,39 +69,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
+        <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Administrar</div>
+                            <div class="sb-sidenav-menu-heading">Volver a:</div>
                             <!-- Cambiar link-->
-                            <a class="nav-link" href="adminUsuarios.php">
+                            <a class="nav-link" href="../index.php">
                                 <!-- icono de Dashboard-->
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Usuarios
+                                <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                                Inicio
                             </a>
 
-                            <div class="sb-sidenav-menu-heading">Servicio</div>
-
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Pedidos
+                            <div class="sb-sidenav-menu-heading">Ir a menu de:</div>
+                            <a class="nav-link" href="burger.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                Hamburguesas
                             </a>
 
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Opiniones
+                            <a class="nav-link" href="tacos.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                Tacos
                             </a>
 
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Pagina De Productos
-                            </a>
-                            
-                            <div class="sb-sidenav-menu-heading">Información</div>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tabla usuarios
+                            <a class="nav-link" href="quesadillas.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                Quesadillas
                             </a>
                         </div>
                     </div>
@@ -124,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="container-fluid px-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 class="mt-4">Editar información</h1>
-                        <a href="index.php" onclick="history.back();" class="btn btn-danger"> X </a>
+                        <a href="../index.php" onclick="history.back();" class="btn btn-danger"> X </a>
                     </div>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Datos:</li>
@@ -135,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="card-footer d-flex align-items-start justify-content-between">
                                         <div class="d-flex ">
                                             <div>
-                                            <img src="assets/img/credencial2.png" alt="imagenUsuario" style="width: 100%; height: auto;">
+                                            <img src="../assets/img/credencial2.png" alt="imagenUsuario" style="width: 100%; height: auto;">
                                             </div>
                                             
                                             <div>
