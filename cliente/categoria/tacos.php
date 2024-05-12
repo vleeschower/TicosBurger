@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once "../conexion.php";
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="estilo.css">
     <script src="app.js" async></script>
-    <title>Quesadillas</title>
+    <title>Tacos</title>
 </head>
 <body>
     <header>
@@ -26,39 +31,27 @@
         <!-- Contenedor de elementos -->
         <div class="contenedor-items">
             <div class="item"> <!--PRUEBAS-->
-                <span class="titulo-item">Campechana</span>
-                <img src="img/campechana.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
-                <button class="boton-item">Agregar al Carrito</button>
-            </div>
-            <div class="item">
-                <span class="titulo-item">Bistec</span>
-                <img src="img/bistec.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="titulo-item">bistec</span>
+                <img src="img/2/tacosbistec.png" alt="" class="img-item">
+                <span class="precio-item">$14.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">pastor</span>
-                <img src="img/pastor.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <img src="img/2/tacospastor.png" alt="" class="img-item">
+                <span class="precio-item">$14.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">adobada</span>
-                <img src="img/adobada.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
-                <button class="boton-item">Agregar al Carrito</button>
-            </div>
-            <div class="item">
-                <span class="titulo-item">quesillo y jamón</span>
-                <img src="img/queso.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <img src="img/2/tacosadobada.png" alt="" class="img-item">
+                <span class="precio-item">$14.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">chorizo</span>
-                <img src="img/chorizo.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <img src="img/2/tacoschorizo.png" alt="" class="img-item">
+                <span class="precio-item">$14.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>
@@ -106,7 +99,7 @@
                 <div class="fila">
                     <strong>Tu Total</strong>
                     <span class="carrito-precio-total">
-                        $0.00
+                        $120.000,00
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
                 <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>

@@ -1,3 +1,31 @@
+<?php
+session_start();
+require_once "../conexion.php";
+
+if(!isset($_SESSION['id'])){
+    header("Location: ../InicioSesión/IndexSesion.php");
+}
+try {
+    // Consulta SQL
+    $sql = "SELECT id_productos, NombreProducto, Precio FROM empreconnect WHERE activo = 1";
+    
+    // Ejecutar consulta
+    $result = $conecta->query($sql);
+
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Iterar sobre los resultados y mostrarlos
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+        }
+    } else {
+        echo "0 resultados";
+    }
+} catch (Exception $e) {
+    // Manejar cualquier excepción que pueda ocurrir
+    echo "Error en la consulta: " . $e->getMessage();
+}   
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,49 +55,49 @@
         <div class="contenedor-items">
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Hamburguesa Normal</span>
-                <img src="img/HmburgesaNormal.jpg" alt="" class="img-item">
+                <img src="img/1/HmburgesaNormal.jpg" alt="" class="img-item">
                 <span class="precio-item">$80.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Hawaiana</span>
-                <img src="img/HamburguesaHawaiana.jpeg" alt="" class="img-item">
+                <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
                 <span class="precio-item">$25.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Dos Quesos</span>
-                <img src="img/HamburguesaDosQuesos.png" alt="" class="img-item">
+                <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
                 <span class="precio-item">$35.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa C</span>
-                <img src="img/hamgurgesa doble carne.jpg" alt="" class="img-item">
+                <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
                 <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Triple Queso</span>
-                <img src="img/Hamburguesa Triple Queso.png" alt="" class="img-item">
+                <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
                 <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Especial</span>
-                <img src="img/HamburguesaEspecial.jpg" alt="" class="img-item">
+                <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
                 <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Torta de Hamburguesa</span>
-                <img src="img/HamburguesaTorta.jpg" alt="" class="img-item">
+                <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
                 <span class="precio-item">$54.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Mixto</span>
-                <img src="img/HamburguesasMixto.jpg" alt="" class="img-item">
+                <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
                 <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>           
@@ -80,39 +108,7 @@
                 <h2>Tu Carrito</h2>
             </div>
 
-            <div class="carrito-items">
-                <!-- 
-                <div class="carrito-item">
-                    <img src="img/boxengasse.png" width="80px" alt="">
-                    <div class="carrito-item-detalles">
-                        <span class="carrito-item-titulo">Box Engasse</span>
-                        <div class="selector-cantidad">
-                            <i class="fa-solid fa-minus restar-cantidad"></i>
-                            <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                            <i class="fa-solid fa-plus sumar-cantidad"></i>
-                        </div>
-                        <span class="carrito-item-precio">$15.000,00</span>
-                    </div>
-                   <span class="btn-eliminar">
-                        <i class="fa-solid fa-trash"></i>
-                   </span>
-                </div>
-                <div class="carrito-item">
-                    <img src="img/skinglam.png" width="80px" alt="">
-                    <div class="carrito-item-detalles">
-                        <span class="carrito-item-titulo">Skin Glam</span>
-                        <div class="selector-cantidad">
-                            <i class="fa-solid fa-minus restar-cantidad"></i>
-                            <input type="text" value="3" class="carrito-item-cantidad" disabled>
-                            <i class="fa-solid fa-plus sumar-cantidad"></i>
-                        </div>
-                        <span class="carrito-item-precio">$18.000,00</span>
-                    </div>
-                   <button class="btn-eliminar">
-                        <i class="fa-solid fa-trash"></i>
-                   </button>
-                </div>
-                 -->
+            <div class="carrito-items">                            
             </div>
             <div class="carrito-total">
                 <div class="fila">

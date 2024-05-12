@@ -1,3 +1,28 @@
+<?php
+session_start();
+require_once "../conexion.php";
+
+try {
+    // Consulta SQL
+    $sql = "SELECT id_productos, NombreProducto, Precio FROM empreconnect WHERE activo = 1";
+    
+    // Ejecutar consulta
+    $result = $conecta->query($sql);
+
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Iterar sobre los resultados y mostrarlos
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+        }
+    } else {
+        echo "0 resultados";
+    }
+} catch (Exception $e) {
+    // Manejar cualquier excepción que pueda ocurrir
+    echo "Error en la consulta: " . $e->getMessage();
+}   
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="estilo.css">
     <script src="app.js" async></script>
-    <title>Tacos</title>
+    <title>Quesadillas</title>
 </head>
 <body>
     <header>
@@ -26,27 +51,39 @@
         <!-- Contenedor de elementos -->
         <div class="contenedor-items">
             <div class="item"> <!--PRUEBAS-->
-                <span class="titulo-item">bistec</span>
-                <img src="img/tacosbistec.png" alt="" class="img-item">
-                <span class="precio-item">$14.00</span>
+                <span class="titulo-item">Campechana</span>
+                <img src="img/3/campechana.png" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Bistec</span>
+                <img src="img/3/bistec.png" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">pastor</span>
-                <img src="img/tacospastor.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <img src="img/3/pastor.png" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">adobada</span>
-                <img src="img/tacosadobada.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <img src="img/3/adobada.jpg" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">quesillo y jamón</span>
+                <img src="img/3/queso.jpg" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">chorizo</span>
-                <img src="img/tacoschorizo.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <img src="img/3/chorizo.png" alt="" class="img-item">
+                <span class="precio-item">$40.00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>
@@ -94,7 +131,7 @@
                 <div class="fila">
                     <strong>Tu Total</strong>
                     <span class="carrito-precio-total">
-                        $120.000,00
+                        $0.00
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
                 <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
