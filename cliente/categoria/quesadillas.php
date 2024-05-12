@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])){
 }
 try {
     // Consulta SQL
-    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
+    $sql = "SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE activo = 1";
     
     // Ejecutar consulta
     $result = $conecta->query($sql);
@@ -17,7 +17,7 @@ try {
     if ($result->num_rows > 0) {
         // Iterar sobre los resultados y mostrarlos
         while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+            echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
         }
     } else {
         echo "0 resultados";
@@ -57,37 +57,37 @@ try {
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Campechana</span>
                 <img src="img/3/campechana.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Bistec</span>
                 <img src="img/3/bistec.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">pastor</span>
                 <img src="img/3/pastor.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">adobada</span>
                 <img src="img/3/adobada.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">quesillo y jamón</span>
                 <img src="img/3/queso.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">chorizo</span>
                 <img src="img/3/chorizo.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>

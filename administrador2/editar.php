@@ -155,8 +155,7 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                                             <td>Cargo:</td>
                                                             <td>
                                                                 <?php
-                                                                // Solo muestra la opción de seleccionar el cargo si el id_cargo del usuario a editar es 3
-                                                                if($row['id_cargo'] == 3 || $row['id'] == 1){
+                                                                if($row['id_cargo'] == 3 || $row['id_cargo'] == 1){
                                                                     ?>
                                                                     <select name="id_cargo" required>
                                                                         <option value="1" <?php if ($row['id_cargo'] == 1) echo 'selected'; ?>>Administrador</option>
@@ -164,8 +163,12 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                                                     </select>
                                                                     <?php
                                                                 }else{
-                                                                    // Si el id_cargo del usuario a editar no es 3, muestra el cargo actual como texto
-                                                                    echo $row['descripcion'];
+                                                                    // Si el id_cargo del usuario a editar es 2
+                                                                    ?>
+                                                                    <select name="id_cargo" required>
+                                                                        <option value="2" <?php if ($row['id_cargo'] == 2) echo 'selected'; ?>>Cliente</option>
+                                                                    </select>
+                                                                    <?php
                                                                 }
                                                                 ?>
                                                             </td>

@@ -8,16 +8,16 @@ if(!isset($_SESSION['id'])){
 }
 try {
     // Consulta SQL
-    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
+    $sql = "SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE activo = 1";
     
     // Ejecutar consulta
     $result = $conecta->query($sql);
 
     // Verificar si hay resultados
     if ($result->num_rows > 0) {
-        // Iterar sobre los resultados y mostrarlos
+        // Iterar sobre los resultados y mostrarlos 
         while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+            echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
         }
     } else {
         echo "0 resultados";
@@ -54,55 +54,58 @@ try {
     <section class="contenedor">
         <!-- Contenedor de elementos -->
         <div class="contenedor-items">
+            <?php foreach ($result as $row) { ?>
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Hamburguesa Normal</span>
                 <img src="img/1/HmburgesaNormal.jpg" alt="" class="img-item">
-                <span class="precio-item">$80.00</span>
+                <span class="precio-item">$60,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Hawaiana</span>
                 <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
-                <span class="precio-item">$25.000</span>
+                <span class="precio-item">$65,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Dos Quesos</span>
                 <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
-                <span class="precio-item">$35.000</span>
+                <span class="precio-item">$65,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa C</span>
                 <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
-                <span class="precio-item">$18.000</span>
+                <span class="precio-item">$65,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Triple Queso</span>
                 <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
-                <span class="precio-item">$32.000</span>
+                <span class="precio-item">$70,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Especial</span>
                 <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
-                <span class="precio-item">$18.000</span>
+                <span class="precio-item">$90,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Torta de Hamburguesa</span>
                 <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
-                <span class="precio-item">$54.000</span>
+                <span class="precio-item">$60,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Mixto</span>
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
-                <span class="precio-item">$32.000</span>
+                <span class="precio-item">$65,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
-            </div>           
+            </div>   
+            <?php } ?>
         </div>
+    
         <!-- Carrito de Compras -->
         <div class="carrito" id="carrito">
             <div class="header-carrito">
