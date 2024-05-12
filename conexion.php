@@ -1,6 +1,6 @@
 <?PHP
     //CONEXION DE BD   
-    //delcara las variables donde se guardaran los valores de la conexion   
+    //declarar las variables donde se guardaran los valores de la conexion   
     $servidor = "localhost";
     $user = "root";
     $password = "";

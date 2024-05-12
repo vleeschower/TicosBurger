@@ -118,11 +118,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <main>
                     <div class="container-fluid px-4">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="mt-4">Editar información</h1>
+                        <h1 class="mt-4">Configuración</h1>
                         <a href="index.php" onclick="history.back();" class="btn btn-danger"> X </a>
                     </div>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Datos:</li>
+                            <li class="breadcrumb-item active">Editar mi información:</li>
                         </ol>
                         <div class="row justify-content-center">
                             <div class="col-xl-8">

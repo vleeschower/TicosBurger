@@ -72,7 +72,7 @@ if ($resultado_cargo->num_rows > 0) {
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre . ' ' . $apellidos . ' '; ?><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/categoria/confcliente.php">Configuración</a></li>
+                <li><a class="dropdown-item" href="../cliente/categoria/confcliente.php">Configuración</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="../administrador2/logout.php">Salir</a></li>
             </ul>
