@@ -68,9 +68,8 @@
             
             <ul class="nav_items">
                 <li class="nav_item">
-                    <a href="#" class="nav_link">Inicio</a>
-                    <a href="#" class="nav_link">Productos</a>
-                    <a href="#" class="nav_link">Servicios</a>
+                    <a href="IndexSesion.php" class="nav_link">Inicio</a>
+                    <a href="#" class="nav_link">Acerca de</a>
                     <a href="#" class="nav_link">Contactos</a>
                 </li>                
             </ul>
