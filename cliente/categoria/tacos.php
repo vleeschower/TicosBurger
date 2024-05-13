@@ -126,7 +126,7 @@ $id=$_SESSION['id'];
                 <div class="fila">
                     <strong>Tu Total</strong>
                     <span class="carrito-precio-total">
-                        $120.000,00
+                        $0
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
                 <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
