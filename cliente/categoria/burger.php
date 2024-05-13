@@ -5,27 +5,7 @@ require_once realpath(__DIR__ . '/../../conexion.php');
 if(!isset($_SESSION['id'])){
     header("Location: ../InicioSesión/IndexSesion.php");
     exit;
-}
-try {
-    // Consulta SQL
-    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
-    
-    // Ejecutar consulta
-    $result = $conecta->query($sql);
-
-    // Verificar si hay resultados
-    if ($result->num_rows > 0) {
-        // Iterar sobre los resultados y mostrarlos
-        while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
-        }
-    } else {
-        echo "0 resultados";
-    }
-} catch (Exception $e) {
-    // Manejar cualquier excepción que pueda ocurrir
-    echo "Error en la consulta: " . $e->getMessage();
-}   
+} 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,43 +41,43 @@ try {
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa suprema</span>
                 <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
                 <span class="precio-item">$25.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa tropical</span>
                 <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
                 <span class="precio-item">$35.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa doble carne</span>
                 <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
                 <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa 3 quesos</span>
                 <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
                 <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa extra Especial</span>
                 <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
                 <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">torta de hamburguesa</span>
                 <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
                 <span class="precio-item">$54.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
+                <span class="titulo-item">Hamburguesa Especial</span>
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
                 <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>

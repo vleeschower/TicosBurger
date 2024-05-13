@@ -35,16 +35,12 @@ header nav ul {
 .nav_items{
     display: flex;
     justify-content: center;
-    align-items: center; /* Esto también asegura que los elementos de la lista se centren verticalmente */
-    width: 100%; /* Esto hará que .nav_items ocupe todo el ancho de .nav */
 }
 .nav_link{
     text-decoration: none;
     color: #fff;
     padding: 0 20px;
     text-align: center;
-    
-    display: block; /* Esto hará que cada enlace se trate como un bloque, permitiendo que el texto se centre */
 }
 .nav_link:hover{
     color: #d9d9d9;
@@ -61,11 +57,6 @@ a:focus{
     z-index: 100;
     padding: 0 20px;
     background-color: rgb(0, 0, 0,0.5);
-    display: flex; /* Asegúrate de que .nav sea un contenedor flex */
-    align-items: center; /* Esto centrará los elementos verticalmente */
-    justify-content: center; /* Esto centrará los elementos horizontalmente */
-    
-   
 }
 
 /*termina el codigo*/
