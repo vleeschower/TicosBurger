@@ -3,7 +3,7 @@ session_start();
 require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../InicioSesión/IndexSesion.php");
+    header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 }
 try {

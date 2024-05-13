@@ -3,7 +3,7 @@ session_start();
 require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../InicioSesión/IndexSesion.php");
+    header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 }
 $nombre=$_SESSION['Nombre'];
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="confcliente.php">Configuración</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="logout.php">Salir</a></li>
+                        <li><a class="dropdown-item" href="../../administrador2/logout.php">Salir</a></li>
                     </ul>
                 </li>
             </ul>
