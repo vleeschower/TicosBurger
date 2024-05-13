@@ -111,6 +111,7 @@ $resultado=$conecta->query($sql);
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>id</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Correo</th>
@@ -123,6 +124,7 @@ $resultado=$conecta->query($sql);
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>id</th>
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Correo</th>
@@ -140,6 +142,7 @@ $resultado=$conecta->query($sql);
                                             if($id_cargo == 1){
                                                 ?>
                                                 <tr>
+                                                    <td><?php echo$row['id'];?></td>
                                                     <td><?php echo$row['Nombre'];?></td>
                                                     <td><?php echo$row['Apellidos'];?></td>
                                                     <td><?php echo$row['Correo'];?></td>
@@ -155,6 +158,7 @@ $resultado=$conecta->query($sql);
                                             }else if($id_cargo == 3 && $row['id_cargo'] == 2) {
                                                 ?>
                                                 <tr>
+                                                    <td><?php echo$row['id'];?></td>
                                                     <td><?php echo$row['Nombre'];?></td>
                                                     <td><?php echo$row['Apellidos'];?></td>
                                                     <td><?php echo$row['Correo'];?></td>

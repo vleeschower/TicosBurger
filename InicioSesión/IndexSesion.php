@@ -69,7 +69,7 @@
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="IndexSesion.php" class="nav_link">Inicio</a>
-                    <a href="#" class="nav_link">Acerca de</a>
+                    <a href="../InicioSesión/nosotros/acercade.php" class="nav_link">Acerca de</a>
                     <a href="#" class="nav_link">Contactos</a>
                 </li>                
             </ul>
@@ -101,9 +101,7 @@
                     </div>
 
                     <div class="option_field">
-                        <span class="checkbox">
-                            <input type="checkbox" id="check">
-                            <label for="check">Recordar usuario</label><br>
+                        <span class="checkbox">                                                    
                         </span>
                     </div>
                     <button class="button">Ingresar</button>

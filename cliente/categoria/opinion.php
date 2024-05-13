@@ -15,9 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['name'];
     $correo = $_POST['email'];
     $comentario = $_POST['comment'];
+    
+     // Obtener la fecha actual
+     $fecha = date("Y-m-d H:i:s");
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO empreconnect.opiniones (Nombre, Correo, Comentario) VALUES ('$nombre', '$correo', '$comentario')";
+    $sql = "INSERT INTO empreconnect.opiniones (Nombre, Correo, Comentario, Fecha) VALUES ('$nombre', '$correo', '$comentario','$fecha')";
     
     // Ejecutar la consulta y verificar si se ejecutó correctamente
     if ($conecta->query($sql) === TRUE) {
