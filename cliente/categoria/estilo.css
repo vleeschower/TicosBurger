@@ -10,7 +10,7 @@ body {
     /*overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 header{
-    background: url(/cliente/categoria/img/HeaderHamburguesa.jpg);
+    background: url(img/HeaderHamburguesa.jpg);
     background-size: cover;
     background-position:center;
     height: 300px;
@@ -35,12 +35,16 @@ header nav ul {
 .nav_items{
     display: flex;
     justify-content: center;
+    align-items: center; /* Esto también asegura que los elementos de la lista se centren verticalmente */
+    width: 100%; /* Esto hará que .nav_items ocupe todo el ancho de .nav */
 }
 .nav_link{
     text-decoration: none;
     color: #fff;
     padding: 0 20px;
     text-align: center;
+    
+    display: block; /* Esto hará que cada enlace se trate como un bloque, permitiendo que el texto se centre */
 }
 .nav_link:hover{
     color: #d9d9d9;
@@ -50,15 +54,6 @@ a:focus{
     outline: none;
 }
 
-/*
-.header{
-    position: fixed;
-    height: 60px;
-    width: 90%;
-    z-index: 100;
-    padding: 0 20px;
-}
-*/
 .nav{
     position: relative;
     height: 60px;
@@ -66,34 +61,12 @@ a:focus{
     z-index: 100;
     padding: 0 20px;
     background-color: rgb(0, 0, 0,0.5);
+    display: flex; /* Asegúrate de que .nav sea un contenedor flex */
+    align-items: center; /* Esto centrará los elementos verticalmente */
+    justify-content: center; /* Esto centrará los elementos horizontalmente */
     
-    /*max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;*/
+   
 }
-
-/*
-.nav,
-.nav_item{
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav_logo,
-.nav_link,
-.button{
-    color: #fff;
-}
-
-.nav_item{
-    column-gap: 25px;
-}
-
-.nav_link:hover{
-    color: #d9d9d9;
-}*/
 
 /*termina el codigo*/
 .contenedor{
