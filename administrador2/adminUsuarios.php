@@ -66,7 +66,7 @@ $resultado=$conecta->query($sql);
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
@@ -90,7 +90,7 @@ $resultado=$conecta->query($sql);
                         <h1 class="mt-4">Administrar usuarios</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Panel general</a></li>
-                            <li class="breadcrumb-item active">Tabla usuarios</li>
+                            <li class="breadcrumb-item active">Usuarios</li>
                         </ol>
                         <div class="card mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">

@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 Pedidos
                             </a>
 
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
                             </a>
