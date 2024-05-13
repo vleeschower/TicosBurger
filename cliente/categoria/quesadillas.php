@@ -5,29 +5,7 @@ require_once realpath(__DIR__ . '/../../conexion.php');
 if(!isset($_SESSION['id'])){
     header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
-}
-try {
-    // Consulta SQL
-    $sql = "SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE activo = 1";
-    
-    // Ejecutar consulta
-    $result = $conecta->query($sql);
-
-    // Verificar si hay resultados
-    if ($result->num_rows > 0) {
-        // Iterar sobre los resultados y mostrarlos
-        while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
-        }
-    } 
-    
-    /*else {
-        echo "0 resultados";
-    }*/
-} catch (Exception $e) {
-    // Manejar cualquier excepción que pueda ocurrir
-    echo "Error en la consulta: " . $e->getMessage();
-}   
+} 
 $nombre=$_SESSION['Nombre'];
 $apellidos = $_SESSION['Apellidos'];
 $id=$_SESSION['id'];

@@ -6,28 +6,6 @@ if(!isset($_SESSION['id'])){
     header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 }
-try {
-    // Consulta SQL
-    $sql = "SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE activo = 1";
-    
-    // Ejecutar consulta
-    $result = $conecta->query($sql);
-
-    // Verificar si hay resultados
-    if ($result->num_rows > 0) {
-        // Iterar sobre los resultados y mostrarlos
-        while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
-        }
-    } 
-    
-    /*else {
-        echo "0 resultados";
-    }*/
-} catch (Exception $e) {
-    // Manejar cualquier excepción que pueda ocurrir
-    echo "Error en la consulta: " . $e->getMessage();
-}
 $nombre=$_SESSION['Nombre'];
 $apellidos = $_SESSION['Apellidos'];
 $id=$_SESSION['id'];
@@ -147,7 +125,7 @@ $id=$_SESSION['id'];
                 <div class="fila">
                     <strong>Tu Total</strong>
                     <span class="carrito-precio-total">
-                        $120.000,00
+                        $0
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
                 <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
