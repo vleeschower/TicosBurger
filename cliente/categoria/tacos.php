@@ -3,7 +3,7 @@ session_start();
 require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../InicioSesión/IndexSesion.php");
+    header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 }
 try {
@@ -41,7 +41,7 @@ try {
 </head>
 <body>
     <header>
-        <h1><img src="img/Logo.png" alt=""></h1>
+        <h1><img src="../img/logogris2.png" alt=""></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_item">
@@ -59,25 +59,25 @@ try {
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">bistec</span>
                 <img src="img/2/tacosbistec.png" alt="" class="img-item">
-                <span class="precio-item">$14.00</span>
+                <span class="precio-item">$14,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">pastor</span>
                 <img src="img/2/tacospastor.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <span class="precio-item">$14,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">adobada</span>
                 <img src="img/2/tacosadobada.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <span class="precio-item">$14,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">chorizo</span>
                 <img src="img/2/tacoschorizo.png" alt="" class="img-item">
-                <span class="precio-item">$14.000</span>
+                <span class="precio-item">$14,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>

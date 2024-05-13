@@ -3,7 +3,7 @@ session_start();
 require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../InicioSesión/IndexSesion.php");
+    header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 }
 try {
@@ -41,7 +41,7 @@ try {
 </head>
 <body>
     <header>
-        <h1><img src="img/Logo.png" alt=""></h1>
+        <h1><img src="../img/logogris2.png" alt=""></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_item">
@@ -59,37 +59,37 @@ try {
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Campechana</span>
                 <img src="img/3/campechana.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Bistec</span>
                 <img src="img/3/bistec.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">pastor</span>
                 <img src="img/3/pastor.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">adobada</span>
                 <img src="img/3/adobada.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">quesillo y jamón</span>
                 <img src="img/3/queso.jpg" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">chorizo</span>
                 <img src="img/3/chorizo.png" alt="" class="img-item">
-                <span class="precio-item">$40.00</span>
+                <span class="precio-item">$45,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>

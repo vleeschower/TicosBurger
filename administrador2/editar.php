@@ -57,7 +57,7 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                             <!-- Cambiar link-->
                             <a class="nav-link" href="adminUsuarios.php">
                                 <!-- icono de Dashboard-->
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Usuarios
                             </a>
 
@@ -75,7 +75,7 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                             
                             <div class="sb-sidenav-menu-heading">Información</div>
                             <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Tabla usuarios
                             </a>
                         </div>
@@ -155,8 +155,7 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                                             <td>Cargo:</td>
                                                             <td>
                                                                 <?php
-                                                                // Solo muestra la opción de seleccionar el cargo si el id_cargo del usuario a editar es 3
-                                                                if($row['id_cargo'] == 3 || $row['id'] == 1){
+                                                                if($row['id_cargo'] == 3 || $row['id_cargo'] == 1){
                                                                     ?>
                                                                     <select name="id_cargo" required>
                                                                         <option value="1" <?php if ($row['id_cargo'] == 1) echo 'selected'; ?>>Administrador</option>
@@ -164,8 +163,12 @@ $row = $resultado->fetch_assoc(); // Obtener los datos del usuario a editar
                                                                     </select>
                                                                     <?php
                                                                 }else{
-                                                                    // Si el id_cargo del usuario a editar no es 3, muestra el cargo actual como texto
-                                                                    echo $row['descripcion'];
+                                                                    // Si el id_cargo del usuario a editar es 2
+                                                                    ?>
+                                                                    <select name="id_cargo" required>
+                                                                        <option value="2" <?php if ($row['id_cargo'] == 2) echo 'selected'; ?>>Cliente</option>
+                                                                    </select>
+                                                                    <?php
                                                                 }
                                                                 ?>
                                                             </td>

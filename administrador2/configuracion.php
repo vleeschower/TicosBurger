@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Tico's Burger</title>
+        <title>Configuración</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <!-- Cambiar link-->
                             <a class="nav-link" href="adminUsuarios.php">
                                 <!-- icono de Dashboard-->
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Usuarios
                             </a>
 
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             
                             <div class="sb-sidenav-menu-heading">Información</div>
                             <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Tabla usuarios
                             </a>
                         </div>

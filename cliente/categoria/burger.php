@@ -1,13 +1,31 @@
 <?php
 session_start();
-require_once realpath(__DIR__ . '/../../conexion2.php');
+require_once realpath(__DIR__ . '/../../conexion.php');
 
-$DB = new Database();
-$con = $DB->conectar();
+if(!isset($_SESSION['id'])){
+    header("Location: ../InicioSesión/IndexSesion.php");
+    exit;
+}
+try {
+    // Consulta SQL
+    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
+    
+    // Ejecutar consulta
+    $result = $conecta->query($sql);
 
-$SQL = $con->prepare("SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE Activo = 1");
-$SQL->execute();
-$RESULTADO = $SQL->fetchAll(PDO::FETCH_ASSOC); 
+    // Verificar si hay resultados
+    if ($result->num_rows > 0) {
+        // Iterar sobre los resultados y mostrarlos
+        while($row = $result->fetch_assoc()) {
+            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+        }
+    } else {
+        echo "0 resultados";
+    }
+} catch (Exception $e) {
+    // Manejar cualquier excepción que pueda ocurrir
+    echo "Error en la consulta: " . $e->getMessage();
+}   
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,7 +39,7 @@ $RESULTADO = $SQL->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <header>
-        <h1><img src="img/Logo.png" alt=""></h1>
+        <h1><img src="../img/logogris2.png" alt=""></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_item">
@@ -36,65 +54,56 @@ $RESULTADO = $SQL->fetchAll(PDO::FETCH_ASSOC);
     <section class="contenedor">
         <!-- Contenedor de elementos -->
         <div class="contenedor-items">
-        <?php foreach($RESULTADO as $row) {?>
             <div class="item"> <!--PRUEBAS-->
-            <?php 
-                $id = $row['id_producto'];
-                $imagen = "categoria/img".$id."/HmburgesaNormal.jpg";
-
-                if(!file_exists($imagen)){
-                    $imagen = "categoria/Producto-sin-imagen-jpg";
-                }
-            ?>            
-                <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
-                <img src="<?php echo $imagen; ?>" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
-                <button class="boton-item">Agregar al Carrito</button>                   
+                <span class="titulo-item">Hamburguesa Normal</span>
+                <img src="img/1/HmburgesaNormal.jpg" alt="" class="img-item">
+                <span class="precio-item">$80.00</span>
+                <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$25.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$35.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$18.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$54.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item"><?php echo $row ['NombreProducto'];?></span>
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
-                <span class="precio-item">$<?php echo number_format($row ['Precio'],2,'.',',');?></span>
+                <span class="precio-item">$32.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
-            </div>  
-            <?php }?>                             
+            </div>           
         </div>
+    
         <!-- Carrito de Compras -->
         <div class="carrito" id="carrito">
             <div class="header-carrito">
