@@ -49,7 +49,7 @@ $id=$_SESSION['id'];
                     <a href="burger.php" class="nav_link">Hamburguesa</a>
                     <a href="tacos.php" class="nav_link">Tacos</a>
                     <a href="quesadillas.php" class="nav_link">Quesadillas</a>
-                    <a href="opinion.php" class="nav_link">Comentarios</a>
+                    <a href="opinion.php" class="nav_link">Añadir comentario</a>
                 </li>                
             </ul>            
         </nav>
