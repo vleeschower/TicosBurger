@@ -22,6 +22,9 @@ $id=$_SESSION['id'];
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <title>Hamburguesa</title>
 </head>
 <body>
@@ -49,14 +52,15 @@ $id=$_SESSION['id'];
                     <a href="burger.php" class="nav_link">Hamburguesa</a>
                     <a href="tacos.php" class="nav_link">Tacos</a>
                     <a href="quesadillas.php" class="nav_link">Quesadillas</a>
+                    <a href="opinion.php" class="nav_link">Comentarios</a>
                 </li>                
             </ul>            
         </nav>
     </header>
     <section class="contenedor">
         <!-- Contenedor de elementos -->
-        <div class="contenedor-items">
-            <div class="item"> <!--PRUEBAS-->
+        <div class="contenedor-items">            
+            <div class="item"> <!--PRUEBAS-->        
                 <span class="titulo-item">Hamburguesa Normal</span>
                 <img src="img/1/HmburgesaNormal.jpg" alt="" class="img-item">
                 <span class="precio-item">$60,00</span>
@@ -103,7 +107,7 @@ $id=$_SESSION['id'];
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
                 <span class="precio-item">$70,00</span>
                 <button class="boton-item">Agregar al Carrito</button>
-            </div>           
+            </div>  
         </div>
     
         <!-- Carrito de Compras -->

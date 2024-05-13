@@ -10,7 +10,7 @@ body {
     /*overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 header{
-    background: url(img/HeaderHamburguesa.jpg);
+    background: url(/categoria/img/HeaderHamburguesa.jpg);
     background-size: cover;
     background-position:center;
     height: 300px;

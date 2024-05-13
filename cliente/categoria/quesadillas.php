@@ -5,7 +5,7 @@ require_once realpath(__DIR__ . '/../../conexion.php');
 if(!isset($_SESSION['id'])){
     header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
-} 
+}   
 $nombre=$_SESSION['Nombre'];
 $apellidos = $_SESSION['Apellidos'];
 $id=$_SESSION['id'];
@@ -49,6 +49,7 @@ $id=$_SESSION['id'];
                     <a href="burger.php" class="nav_link">Hamburguesa</a>
                     <a href="tacos.php" class="nav_link">Tacos</a>
                     <a href="quesadillas.php" class="nav_link">Quesadillas</a>
+                    <a href="opinion.php" class="nav_link">Comentarios</a>
                 </li>                
             </ul>            
         </nav>

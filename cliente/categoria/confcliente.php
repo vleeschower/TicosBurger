@@ -96,6 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
                                 Quesadillas
                             </a>
+                            <a class="nav-link" href="opinion.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hamburger"></i></div>
+                                Comentario
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

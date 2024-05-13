@@ -64,6 +64,7 @@ if ($resultado_cargo->num_rows > 0) {
                     <a href="../cliente/categoria/burger.php" class="nav_link">Hamburguesa</a>
                     <a href="../cliente/categoria/tacos.php" class="nav_link">Tacos</a>
                     <a href="../cliente/categoria/quesadillas.php" class="nav_link">Quesadillas</a>
+                    <a href="../cliente/categoria/opinion.php" class="nav_link">Comentario</a>
                 </li>                
             </ul>            
         </nav>                  
