@@ -65,43 +65,43 @@ $id=$_SESSION['id'];
                 <button class="boton-item">Agregar al Carrito</button>                
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Hawaiana</span>
+                <span class="titulo-item">Hamburguesa suprema</span>
                 <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
                 <span class="precio-item">$60.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Dos Quesos</span>
+                <span class="titulo-item">Hamburguesa tropical</span>
                 <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
                 <span class="precio-item">$65.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Tropical</span>
+                <span class="titulo-item">Hamburguesa doble carne</span>
                 <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
                 <span class="precio-item">$60.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Triple Queso<span>
+                <span class="titulo-item">Hamburguesa 3 quesos</span>
                 <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
                 <span class="precio-item">$65.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Especial</span>
+                <span class="titulo-item">Hamburguesa extra Especial</span>
                 <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
                 <span class="precio-item">$70.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Torta de Hamburguesa</span>
+                <span class="titulo-item">torta de hamburguesa</span>
                 <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
                 <span class="precio-item">$55.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Hamburguesa Mixta</span>
+                <span class="titulo-item">Hamburguesa Especial</span>
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
                 <span class="precio-item">$70.000</span>
                 <button class="boton-item">Agregar al Carrito</button>
