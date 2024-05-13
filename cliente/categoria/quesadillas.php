@@ -19,9 +19,11 @@ try {
         while($row = $result->fetch_assoc()) {
             echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
         }
-    } else {
+    } 
+    
+    /*else {
         echo "0 resultados";
-    }
+    }*/
 } catch (Exception $e) {
     // Manejar cualquier excepción que pueda ocurrir
     echo "Error en la consulta: " . $e->getMessage();
@@ -75,7 +77,7 @@ $id=$_SESSION['id'];
     </header>
     <section class="contenedor">
         <!-- Contenedor de elementos -->
-        <div class="contenedor-items">
+        <div class="contenedor-items">            
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Campechana</span>
                 <img src="img/3/campechana.png" alt="" class="img-item">
