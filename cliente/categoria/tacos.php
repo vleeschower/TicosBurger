@@ -39,7 +39,7 @@ try {
 </head>
 <body>
     <header>
-        <h1><img src="img/Logo.png" alt=""></h1>
+        <h1><img src="../img/logogris2.png" alt=""></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_item">

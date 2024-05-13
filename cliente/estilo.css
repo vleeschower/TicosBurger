@@ -53,15 +53,6 @@ a:focus{
     outline: none;
 }
 
-/*
-.header{
-    position: fixed;
-    height: 60px;
-    width: 90%;
-    z-index: 100;
-    padding: 0 20px;
-}
-*/
 .nav{
     position: relative;
     height: 60px;
