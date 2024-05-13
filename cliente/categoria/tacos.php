@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])){
 }
 try {
     // Consulta SQL
-    $sql = "SELECT id_productos, NombreProducto, Precio FROM pedidos WHERE activo = 1";
+    $sql = "SELECT id_producto, NombreProducto, Precio FROM pedidos WHERE activo = 1";
     
     // Ejecutar consulta
     $result = $conecta->query($sql);
@@ -17,11 +17,13 @@ try {
     if ($result->num_rows > 0) {
         // Iterar sobre los resultados y mostrarlos
         while($row = $result->fetch_assoc()) {
-            echo "ID: " . $row["id_productos"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
+            echo "ID: " . $row["id_producto"]. " - Nombre: " . $row["NombreProducto"]. " - Precio: $" . $row["Precio"]. "<br>";
         }
-    } else {
+    } 
+    
+    /*else {
         echo "0 resultados";
-    }
+    }*/
 } catch (Exception $e) {
     // Manejar cualquier excepción que pueda ocurrir
     echo "Error en la consulta: " . $e->getMessage();

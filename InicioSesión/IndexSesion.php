@@ -69,7 +69,7 @@
             <ul class="nav_items">
                 <li class="nav_item">
                     <a href="#" class="nav_link">Inicio</a>
-                    <a href="#" class="nav_link">Productos</a>
+                    <a href="/nosotros/acercade.html" class="nav_link">A cerca De</a>
                     <a href="#" class="nav_link">Servicios</a>
                     <a href="#" class="nav_link">Contactos</a>
                 </li>                
