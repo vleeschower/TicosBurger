@@ -62,11 +62,6 @@ $resultado2=$conecta->query($sql2);
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Pedidos
-                            </a>
-
                             <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
@@ -106,6 +101,7 @@ $resultado2=$conecta->query($sql2);
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Comentario</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -114,6 +110,7 @@ $resultado2=$conecta->query($sql2);
                                             <th>Nombre</th>
                                             <th>Correo</th>
                                             <th>Comentario</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -125,6 +122,7 @@ $resultado2=$conecta->query($sql2);
                                                     <td><?php echo$row['Nombre'];?></td>
                                                     <td><?php echo$row['Correo'];?></td>
                                                     <td><?php echo$row['Comentario'];?></td>
+                                                    <td><?php echo$row['Fecha'];?></td>
                                                 </tr>
                                                 <?php
                                             ?>

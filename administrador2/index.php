@@ -72,11 +72,6 @@ if ($resultado_cargo->num_rows > 0) {
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
 
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Pedidos
-                            </a>
-
                             <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Opiniones
@@ -134,7 +129,7 @@ if ($resultado_cargo->num_rows > 0) {
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Opiniones</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <a class="small text-white stretched-link" href="opinion.php">Ver detalles</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

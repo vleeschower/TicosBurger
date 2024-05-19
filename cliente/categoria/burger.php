@@ -22,9 +22,6 @@ $id=$_SESSION['id'];
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <title>Hamburguesa</title>
 </head>
 <body>
@@ -44,7 +41,7 @@ $id=$_SESSION['id'];
     </ul>    
 </nav>
     <header>
-        <h1><img src="../img/logogris2.png" alt=""></h1>
+        <h1><img src="../img/fondoham.png" alt="" width="1365px" height: auto;></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_items">

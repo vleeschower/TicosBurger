@@ -1,4 +1,5 @@
 <?php
+    error_reporting(0);
     //solicitar el archivo de conexion a la base de datos
     require_once "../conexion.php";
     session_start();
@@ -66,13 +67,7 @@
         <nav class="nav">
             <a href="IndexSesion.php"><img src="imgSesión/Logo.png" alt="Logotipo" style="width: 250px;"></a>
             
-            <ul class="nav_items">
-                <li class="nav_item">
-                    <a href="IndexSesion.php" class="nav_link">Inicio</a>
-                    <a href="../InicioSesión/nosotros/acercade.php" class="nav_link">Acerca de</a>
-                    <a href="#" class="nav_link">Contactos</a>
-                </li>                
-            </ul>
+           
 
             <button class="button" id="form-open">Iniciar Sesión</button>        
         </nav>

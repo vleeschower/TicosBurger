@@ -12,7 +12,7 @@ $apellidos = $_SESSION['Apellidos'];
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
-    $nombre = $_POST['name'];
+    $nombre2 = $_POST['name'];
     $correo = $_POST['email'];
     $comentario = $_POST['comment'];
     
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $fecha = date("Y-m-d H:i:s");
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO empreconnect.opiniones (Nombre, Correo, Comentario, Fecha) VALUES ('$nombre', '$correo', '$comentario','$fecha')";
+    $sql = "INSERT INTO empreconnect.opiniones (Nombre, Correo, Comentario, Fecha) VALUES ('$nombre2', '$correo', '$comentario','$fecha')";
     
     // Ejecutar la consulta y verificar si se ejecutó correctamente
     if ($conecta->query($sql) === TRUE) {

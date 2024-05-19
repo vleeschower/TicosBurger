@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Titillium+Web:wght@200;300;400;600;700&display=swap');
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
     font-family: 'Open Sans';
 }
 body {
@@ -10,20 +10,15 @@ body {
     /*overflow-y: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 header{
-    background: url(/categoria/img/HeaderHamburguesa.jpg);
-    background-size: cover;
-    background-position:center;
-    height: 300px;
-    margin: 0;/*Eliminar*/
-    padding: 20px;/*Eliminar*/
+    margin: 0px;
+    padding: 0px;
 }
 header h1{
+    margin: 0px;
     text-align: center;
-    font-size: 35px;
-    /* background-color: #000; */
     color: #fff;
-    padding: 30px 0;
-    margin: 0;/*Eliminar*/
+    padding: 0px;
+    line-height: 0px;
 }
 /*inicia el codigo*/
 header nav ul {
