@@ -19,9 +19,7 @@ $id=$_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="estilo.css">
     <script src="app.js" async></script>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <title>Tacos</title>
 </head>
 <body>
@@ -41,7 +39,7 @@ $id=$_SESSION['id'];
     </ul>    
 </nav>
     <header>
-        <h1><img src="../img/logogris2.png" alt=""></h1>
+        <h1><img src="../img/fondoham.png" alt="" width="1365px" height: auto;></h1>
         <nav class="nav">                        
             <ul class="nav_items">
                 <li class="nav_items">
@@ -135,9 +133,5 @@ $id=$_SESSION['id'];
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-       
 </body>
 </html>

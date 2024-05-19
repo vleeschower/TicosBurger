@@ -3,7 +3,7 @@ session_start();
 require_once realpath(__DIR__ . '/../../conexion.php');
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../InicioSesión/IndexSesion.php");
+    header("Location: ../../InicioSesión/IndexSesion.php");
     exit;
 } 
 $nombre=$_SESSION['Nombre'];
@@ -19,9 +19,7 @@ $id=$_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="estilo.css">
     <script src="app.js" async></script>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <title>Hamburguesa</title>
 </head>
 <body>
