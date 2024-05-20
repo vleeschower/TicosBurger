@@ -48,6 +48,7 @@ $id=$_SESSION['id'];
                     <a href="tacos.php" class="nav_link">Tacos</a>
                     <a href="quesadillas.php" class="nav_link">Quesadillas</a>
                     <a href="opinion.php" class="nav_link">Añadir comentario</a>
+                    <a href="pedidos.php" class="nav_link">Ver pedidos</a>
                 </li>                
             </ul>            
         </nav>
@@ -58,49 +59,49 @@ $id=$_SESSION['id'];
             <div class="item"> <!--PRUEBAS-->        
                 <span class="titulo-item">Hamburguesa Normal</span>
                 <img src="img/1/HmburgesaNormal.jpg" alt="" class="img-item">
-                <span class="precio-item">$60,00</span>
+                <span class="precio-item">$60</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa suprema</span>
                 <img src="img/1/HamburguesaHawaiana.jpeg" alt="" class="img-item">
-                <span class="precio-item">$90,00</span>
+                <span class="precio-item">$90</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa tropical</span>
                 <img src="img/1/HamburguesaDosQuesos.png" alt="" class="img-item">
-                <span class="precio-item">$50,00</span>
+                <span class="precio-item">$50</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa doble carne</span>
                 <img src="img/1/hamgurgesa doble carne.jpg" alt="" class="img-item">
-                <span class="precio-item">$60,00</span>
+                <span class="precio-item">$60</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa 3 quesos</span>
                 <img src="img/1/Hamburguesa Triple Queso.png" alt="" class="img-item">
-                <span class="precio-item">$60,00</span>
+                <span class="precio-item">$60</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa extra Especial</span>
                 <img src="img/1/HamburguesaEspecial.jpg" alt="" class="img-item">
-                <span class="precio-item">$70,00</span>
+                <span class="precio-item">$70</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">torta de hamburguesa</span>
                 <img src="img/1/HamburguesaTorta.jpg" alt="" class="img-item">
-                <span class="precio-item">$50,00</span>
+                <span class="precio-item">$50</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
                 <span class="titulo-item">Hamburguesa Especial</span>
                 <img src="img/1/HamburguesasMixto.jpg" alt="" class="img-item">
-                <span class="precio-item">$70,00</span>
+                <span class="precio-item">$70</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>  
         </div>
@@ -120,7 +121,7 @@ $id=$_SESSION['id'];
                         $0.00
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
-                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+                <button class="btn-pagar" onclick="finalizar_compra();">Realizar pedido<i class="fa-solid fa-bag-shopping"></i> </button>
             </div>
         </div>
     </section>

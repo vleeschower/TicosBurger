@@ -71,6 +71,10 @@ if ($resultado_cargo->num_rows > 0) {
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
+                            <a class="nav-link" href="pedidos.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Pedidos
+                            </a>
 
                             <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -100,27 +104,27 @@ if ($resultado_cargo->num_rows > 0) {
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Pedidos iniciados</div>
+                                    <div class="card-body">Administrar usuarios</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <a class="small text-white stretched-link" href="adminUsuarios.php">Ver detalles</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Pedidos en proceso</div>
+                                    <div class="card-body">Pedidos</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <a class="small text-white stretched-link" href="pedidos.php">Ver detalles</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Pedidos completados</div>
+                                    <div class="card-body">Tabla usuarios</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver detalles</a>
+                                        <a class="small text-white stretched-link" href="tables.php">Ver detalles</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

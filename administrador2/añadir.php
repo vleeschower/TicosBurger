@@ -76,6 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
+                            <a class="nav-link" href="pedidos.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Pedidos
+                            </a>
 
                             <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

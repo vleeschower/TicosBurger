@@ -83,6 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Añadir Comentario
                             </a>
+                            <a class="nav-link" href="pedidos.php">
+                                <!-- icono de Dashboard-->
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Ver pedidos
+                            </a>
                             
                             <div class="sb-sidenav-menu-heading">Ir a menu de:</div>
                             <a class="nav-link" href="burger.php">

@@ -48,6 +48,7 @@ $id=$_SESSION['id'];
                     <a href="tacos.php" class="nav_link">Tacos</a>
                     <a href="quesadillas.php" class="nav_link">Quesadillas</a>
                     <a href="opinion.php" class="nav_link">Añadir comentario</a>
+                    <a href="pedidos.php" class="nav_link">Ver pedidos</a>
                 </li>                
             </ul>            
         </nav>
@@ -58,37 +59,37 @@ $id=$_SESSION['id'];
             <div class="item"> <!--PRUEBAS-->
                 <span class="titulo-item">Campechana</span>
                 <img src="img/3/campechana.png" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">Bistec</span>
+                <span class="titulo-item">quesadilla de Bistec</span>
                 <img src="img/3/bistec.png" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">pastor</span>
+                <span class="titulo-item">quesadilla de pastor</span>
                 <img src="img/3/pastor.png" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">adobada</span>
+                <span class="titulo-item">quesadilla de adobada</span>
                 <img src="img/3/adobada.jpg" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">quesillo y jamón</span>
+                <span class="titulo-item">quesadilla de quesillo y jamón</span>
                 <img src="img/3/queso.jpg" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
             <div class="item">
-                <span class="titulo-item">chorizo</span>
+                <span class="titulo-item">quesadilla de chorizo</span>
                 <img src="img/3/chorizo.png" alt="" class="img-item">
-                <span class="precio-item">$45,00</span>
+                <span class="precio-item">$45</span>
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>
@@ -139,7 +140,7 @@ $id=$_SESSION['id'];
                         $0.00
                     </span> 
                 </div> <!--uil-shopping-trolley uil-plus -->
-                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+                <button class="btn-pagar"onclick="finalizar_compra();">Realizar pedido <i class="fa-solid fa-bag-shopping"></i> </button>
             </div>
         </div>
     </section>

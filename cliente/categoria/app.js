@@ -40,6 +40,7 @@ function ready(){
 
     //Agregamos funcionalidad al botón comprar
     document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked)
+
 }
 //Eliminamos todos los elementos del carrito y lo ocultamos
 function pagarClicked(){
@@ -193,5 +194,53 @@ function actualizarTotalCarrito(){
     total = Math.round(total * 100)/100;
 
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") ;
+
+}
+
+function obtenerTotalCarrito(){
+    var totalElemento = document.getElementsByClassName('carrito-precio-total')[0];
+    var total = parseFloat(totalElemento.innerText.replace('$','').replace('.',''));
+    return total;
+}
+
+function finalizar_compra(){
+    const carritoItems = document.getElementsByClassName('carrito-item');
+    let items = [];
+
+    for (let i = 0; i < carritoItems.length; i++) {
+        let item = carritoItems[i];
+        let titulo = item.getElementsByClassName('carrito-item-titulo')[0].innerText;
+        let cantidad = item.getElementsByClassName('carrito-item-cantidad')[0].value;
+        let precio = item.getElementsByClassName('carrito-item-precio')[0].innerText.replace('$', '').replace('.', '');
+
+        items.push({
+            titulo: titulo,
+            cantidad: cantidad,
+            precio: precio
+        });
+    }
+
+    const formData = new FormData();
+    formData.append('dato', 'finalizar_pedido');
+    formData.append('items', JSON.stringify(items));
+    formData.append('monto_total', obtenerTotalCarrito());
+
+    fetch('carrito.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.mensaje);
+        if(data.success) {
+            alert("Gracias por la compra");
+            // Aquí puedes limpiar el carrito y realizar cualquier otra acción necesaria
+        } else {
+            alert("Hubo un error al procesar tu pedido");
+        }
+    })
+    .catch(error => {
+        console.log('algo salio mal', error);
+    });
 
 }

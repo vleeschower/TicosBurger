@@ -24,5 +24,5 @@ if ($conecta->multi_query($sql_actualizar) === TRUE) {
     echo "Error al actualizar los identificadores: " . $conecta->error;
 }
 
-header("Location: adminUsuarios.php"); // Redirigir a la primera página 54
+header("Location: opinion.php"); // Redirigir a la primera página 54
 ?>

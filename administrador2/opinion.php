@@ -61,6 +61,10 @@ $resultado2=$conecta->query($sql2);
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Servicio</div>
+                            <a class="nav-link" href="pedidos.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Pedidos
+                            </a>
 
                             <a class="nav-link" href="opinion.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -102,6 +106,7 @@ $resultado2=$conecta->query($sql2);
                                             <th>Correo</th>
                                             <th>Comentario</th>
                                             <th>Fecha</th>
+                                            <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -111,6 +116,7 @@ $resultado2=$conecta->query($sql2);
                                             <th>Correo</th>
                                             <th>Comentario</th>
                                             <th>Fecha</th>
+                                            <th>Acción</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -123,6 +129,8 @@ $resultado2=$conecta->query($sql2);
                                                     <td><?php echo$row['Correo'];?></td>
                                                     <td><?php echo$row['Comentario'];?></td>
                                                     <td><?php echo$row['Fecha'];?></td>
+
+                                                    <td><a href="e_opinion.php?id_opinion=<?php echo $row['id_opinion']; ?>" onclick="return confirm('¿Estás seguro de que quieres eliminar este comentario?')" class="btn btn-danger" >Eliminar</a> </td>
                                                 </tr>
                                                 <?php
                                             ?>
