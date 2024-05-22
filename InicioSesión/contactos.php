@@ -60,6 +60,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="style.css">    
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Tico's Burger</title>
 </head>
 <body>
@@ -78,8 +79,24 @@
             <button class="button" id="form-open">Iniciar Sesión</button>        
         </nav>
     </header>
+
     <!--Primer Cambio En Git 2-->    
     <section class="home">
+
+        <!-- Contenedor del texto informativo -->
+        <div class="info-box-7">
+            <h2 class="info-title">Ubicación:</h2>
+            <p><i class="fas fa-map-marker-alt"></i>  Avenida 3ra norte Oriente, 2a. Nte. Ote., Terán, 29050 Tuxtla Gutiérrez, Chis. </p>
+            <p><a href="https://www.google.com/maps/place/Tico's+Burger/@16.7531591,-93.1632093,15z/data=!4m6!3m5!1s0x85ecd92219f910ab:0x4ea227951d2b6704!8m2!3d16.7531591!4d-93.1632093!16s%2Fg%2F11stpbkt01?entry=ttu" target="_blank"><i class="fas fa-map-marker-alt"></i>  Ubicación desde Google Maps</a> </p>
+            <h2 class="info-title">Teléfono:</h2>
+            <p><i class="fas fa-phone"></i>  961 372 0541</p>
+            <h2 class="info-title">Correo:</h2>
+            <p><i class="fas fa-envelope"></i>  TicosBurger@gmail.com</p>
+            <h2 class="info-title">¡Siguenos!</h2>
+            <p><a href="https://www.instagram.com/ticosburgertux?igsh=MWE3aWdtazh0OXZsbA==" target="_blank"><i class="fab fa-instagram"></i>  Instagram</a></p>
+            
+        </div>
+
         <div class="form_container">
             <i class="uil uil-times form_close"></i>   
             

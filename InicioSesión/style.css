@@ -9,6 +9,76 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    background-color: #000000; /* Establece el fondo del cuerpo de la página a negro */
+}
+
+/* Estilos para el contenedor del texto informativo */
+.info-box, .info-box-2, .info-box-3, .info-box-4, .info-box-5, .info-box-6, .info-box-7 {
+    position: relative;
+    left: 29%;
+    transform: translateX(-50%);
+    margin: 2px auto; /* Ajusta el margen externo */
+    padding: 20px; /* Ajusta el margen interno (espaciado del texto) */
+    max-width: 58%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 99; /* Asegura que esté encima de otros elementos */
+}
+
+/* Ajusta la posición de cada contenedor */
+.info-box-7 {
+    top: 100px;
+}
+
+.info-box {
+    top: 130px;
+}
+
+.info-box-2 {
+    top: 160px;
+}
+
+.info-box-3 {
+    top: 190px;
+}
+
+.info-box-4 {
+    top: 220px;
+}
+
+.info-box-5 {
+    top: 250px;
+}
+
+.info-box-6 {
+    top: 280px;
+}
+
+/* Estilos para el título */
+.info-box .info-title, .info-box-2 .info-title, .info-box-3 .info-title, .info-box-4 .info-title, .info-box-5 .info-title, .info-box-6 .info-title, .info-box-7 .info-title {
+    font-size: 21px; /* Ajusta el tamaño del título */
+    color: rgb(0, 0, 0); /* Cambia el color del título a azul */
+    margin: 0 0 10px; /* Añade un margen inferior para separar del texto */
+}
+
+/* Estilos para el texto informativo */
+.info-box p, .info-box-2 p, .info-box-3 p, .info-box-4 p, .info-box-5 p, .info-box-6 p, .info-box-7 p {
+    font-size: 19px;
+    color: #000000;
+    margin: 18px;
+}
+
+/* Estilo para el título específico */
+.info-title-special-title {
+    font-size: 23px; /* Ajusta el tamaño del título */
+    color: rgb(4, 88, 32); /* Cambia el color a azul */
+    margin: 0 0 5px; /* Añade un margen inferior para separar del texto */
+}
+
 .success-message {
     background-color: black; /* Fondo negro */
     color: lime; /* Color de texto verde fosforescente */
