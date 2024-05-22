@@ -21,7 +21,7 @@ body {
     margin: 2px auto; /* Ajusta el margen externo */
     padding: 20px; /* Ajusta el margen interno (espaciado del texto) */
     max-width: 58%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
